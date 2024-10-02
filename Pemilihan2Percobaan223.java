@@ -8,8 +8,10 @@ public class Pemilihan2Percobaan223 {
         Scanner input23 = new Scanner(System.in);
         int menu23;
         String member;
-        double diskon;
-        double harga=0;
+        String pembayaran;
+        double diskon = 0;
+        double harga = 0;
+        double totalBayar;
 
         System.out.println("-------------------------");
         System.out.println("===== MENU KAFE JTI =====");
@@ -23,6 +25,8 @@ public class Pemilihan2Percobaan223 {
         input23.nextLine();
         System.out.println("Apakah punya member (y/n) ? = ");
         member = input23.nextLine();
+        System.out.println("Pilih metode pembayaran (cash/qris) = ");
+        pembayaran = input23.nextLine();
         System.out.println("--------------------------------------");
 
         if (member.equalsIgnoreCase("y")){
@@ -57,6 +61,21 @@ public class Pemilihan2Percobaan223 {
         }else {
             System.out.println("Member tidak valid");
         }
+
+        if (pembayaran.equalsIgnoreCase("qris")) {
+            double diskonQRIS = 1000;
+            diskon += diskonQRIS;
+            System.out.println("Besar diskon QRIS = " + diskonQRIS);
+        } else if (pembayaran.equalsIgnoreCase("cash")) {
+            System.out.println("Input metode pembayaran tidak valid");
+        }
+
+        totalBayar = harga - diskon;
+        if (totalBayar < 0) {
+            totalBayar = 0;
+        }
+        System.out.println("--------------------------------------");
+        System.out.println("Total bayar = " + totalBayar);
         System.out.println("-------------------------");
     }
 }
